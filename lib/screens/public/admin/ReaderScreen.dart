@@ -1,4 +1,5 @@
 import 'package:ecampus_library/data/models/document_model.dart';
+import 'package:get/get.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,13 @@ class _ReaderScreenState extends State<ReaderScreen> {
       ),
       body: SafeArea(
         child: Container(
-          child: SfPdfViewer.network(widget.doc.doc_url!.toString()),
+          height: Get.height,
+          width: Get.width,
+          child: SfPdfViewer.network(
+            widget.doc.doc_url!.toString(), 
+            scrollDirection: PdfScrollDirection.horizontal,
+            pageLayoutMode: PdfPageLayoutMode.single,
+            ),
         ),
       ),
     );

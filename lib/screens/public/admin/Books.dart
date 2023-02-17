@@ -15,7 +15,7 @@ class BooksScreen extends StatelessWidget {
             children: [
               //TabBar
               TabBar(
-                labelColor: Colors.indigo[400],
+                labelColor: Colors.indigo[700],
                 unselectedLabelColor: Colors.grey,
                 tabs: const [
                   Tab(

@@ -222,7 +222,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
                 // Divider
                 const Divider(
-                  height: 2,
+                  height: 2
                 ),
 
                 const ListTile(

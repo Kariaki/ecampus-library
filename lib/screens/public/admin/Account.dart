@@ -1,6 +1,7 @@
 import 'package:ecampus_library/data/controllers/auth_controller.dart';
 import 'package:ecampus_library/data/controllers/user_controller.dart';
 import 'package:ecampus_library/data/models/user_model.dart';
+import 'package:ecampus_library/screens/public/admin/Manage.dart';
 import 'package:ecampus_library/screens/public/admin/edit_profile.dart';
 import 'package:flutter/material.dart';
 
@@ -48,17 +49,17 @@ class _AccountScreenState extends State<AccountScreen> {
                             Align(
                               alignment: Alignment.centerRight,
                               child: IconButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    const EditProfileScreen()));
-                                      },
-                                      icon: Icon(
-                                        Icons.edit,
-                                        color: Colors.indigo[700],
-                                      )),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const EditProfileScreen()));
+                                  },
+                                  icon: Icon(
+                                    Icons.edit,
+                                    color: Colors.indigo[700],
+                                  )),
                             ),
 
                             //  Avatar And Name
@@ -69,35 +70,42 @@ class _AccountScreenState extends State<AccountScreen> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   // Avatar
-                                  userData.avatarUrl == null ? Container(
-                                    height: 110,
-                                    width: 110,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: 4,
-                                        color: Theme.of(context)
-                                            .scaffoldBackgroundColor,
-                                      ),
-                                      shape: BoxShape.circle,
-                                      color: Colors.indigo[900],
-                                    ),
-                                    child: const Center(child: Icon(Icons.camera_enhance, color: Colors.white,),),
-                                  )
-                                  :
-                                  Container(
-                                    height: 110,
-                                    width: 110,
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: 4,
-                                        color: Theme.of(context)
-                                            .scaffoldBackgroundColor,
-                                      ),
-                                      shape: BoxShape.circle,
-                                      image: DecorationImage(image: NetworkImage(userData.avatarUrl.toString()), fit: BoxFit.cover)
-                                    ),
-                                  ),
-                                  
+                                  userData.avatarUrl == null
+                                      ? Container(
+                                          height: 110,
+                                          width: 110,
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              width: 4,
+                                              color: Theme.of(context)
+                                                  .scaffoldBackgroundColor,
+                                            ),
+                                            shape: BoxShape.circle,
+                                            color: Colors.indigo[900],
+                                          ),
+                                          child: const Center(
+                                            child: Icon(
+                                              Icons.camera_enhance,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        )
+                                      : Container(
+                                          height: 110,
+                                          width: 110,
+                                          decoration: BoxDecoration(
+                                              border: Border.all(
+                                                width: 4,
+                                                color: Theme.of(context)
+                                                    .scaffoldBackgroundColor,
+                                              ),
+                                              shape: BoxShape.circle,
+                                              image: DecorationImage(
+                                                  image: NetworkImage(userData
+                                                      .avatarUrl
+                                                      .toString()),
+                                                  fit: BoxFit.cover)),
+                                        ),
 
                                   //  Spacing
                                   const SizedBox(
@@ -106,8 +114,7 @@ class _AccountScreenState extends State<AccountScreen> {
 
                                   //  Name
                                   Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
@@ -122,7 +129,7 @@ class _AccountScreenState extends State<AccountScreen> {
                                       Text(
                                         "${userData.email}",
                                         style: TextStyle(
-                                            color: Colors.grey[400],
+                                          color: Colors.grey[400],
                                         ),
                                       ),
                                     ],
@@ -157,97 +164,106 @@ class _AccountScreenState extends State<AccountScreen> {
                               ),
                             ),
 
-                            // 
+                            //
                             // Spacing
-                const SizedBox(
-                  height: 20,
-                ),
+                            const SizedBox(
+                              height: 20,
+                            ),
 
-                //  Account Settings
-                Text(
-                  "Account",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.indigo[700]),
-                ),
-                const ListTile(
-                  leading: Icon(Icons.lock),
-                  title: Text("Change Password"),
-                  trailing: Icon(Icons.chevron_right),
-                ),
+                            //  Account Settings
+                            Text(
+                              "Account",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  color: Colors.indigo[700]),
+                            ),
+                            const ListTile(
+                              leading: Icon(Icons.lock),
+                              title: Text("Change Password"),
+                              trailing: Icon(Icons.chevron_right),
+                            ),
 
-                // Divider
-                const Divider(),
+                            // Divider
+                            const Divider(),
 
-                const ListTile(
-                  leading: Icon(Icons.notifications),
-                  title: Text("Notification"),
-                  trailing: Icon(Icons.chevron_right),
-                ),
+                            const ListTile(
+                              leading: Icon(Icons.notifications),
+                              title: Text("Notification"),
+                              trailing: Icon(Icons.chevron_right),
+                            ),
 
-                // Divider
-                const Divider(),
+                            // Divider
+                            const Divider(),
 
-                const ListTile(
-                  leading: Icon(Icons.wallet),
-                  title: Text("Subscription Settings"),
-                  trailing: Icon(Icons.chevron_right),
-                ),
+                            const ListTile(
+                              leading: Icon(Icons.wallet),
+                              title: Text("Subscription Settings"),
+                              trailing: Icon(Icons.chevron_right),
+                            ),
 
-                // Divider
-                const Divider(),
+                            // Divider
+                            const Divider(),
 
-                const ListTile(
-                  leading: Icon(Icons.front_hand),
-                  title: Text("Privacy Settings"),
-                  trailing: Icon(Icons.chevron_right),
-                ),
+                            const ListTile(
+                              leading: Icon(Icons.front_hand),
+                              title: Text("Privacy Settings"),
+                              trailing: Icon(Icons.chevron_right),
+                            ),
 
-                const Divider(),
+                            const Divider(),
 
-                const ListTile(
-                  leading: Icon(Icons.front_hand),
-                  title: Text("Manage Users"),
-                  trailing: Icon(Icons.chevron_right),
-                ),
+                            ListTile(
+                              leading: const Icon(Icons.front_hand),
+                              title: const Text("Manage Users"),
+                              trailing: const Icon(Icons.chevron_right),
+                              onTap: () {
+                                Get.to(() => const ManageUsers());
+                              },
+                            ),
 
-                // Divider
-                const Divider(
-                  height: 2,
-                ),
+                            // Divider
+                            const Divider(
+                              height: 2,
+                            ),
 
-                // Spacing
-                const SizedBox(
-                  height: 20,
-                ),
+                            // Spacing
+                            const SizedBox(
+                              height: 20,
+                            ),
 
-                //  More Options
-                Text("More Options",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: Colors.indigo[700])),
+                            //  More Options
+                            Text("More Options",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    color: Colors.indigo[700])),
 
-                const ListTile(
-                  title: Text("Newsletter"),
-                  trailing: Icon(Icons.chevron_right),
-                ),
+                            const ListTile(
+                              title: Text("Newsletter"),
+                              trailing: Icon(Icons.chevron_right),
+                            ),
 
-                // Divider
-                const Divider(
-                  height: 2,
-                ),
+                            // Divider
+                            const Divider(
+                              height: 2,
+                            ),
 
-                const ListTile(
-                  title: Text("Linked Account"),
-                  trailing: Icon(Icons.chevron_right),
-                ),
+                            const ListTile(
+                              title: Text("Linked Account"),
+                              trailing: Icon(Icons.chevron_right),
+                            ),
 
-                // Divider
-                const Divider(
-                  height: 2,
-                ),
+                            // Divider
+                            const Divider(
+                              height: 2,
+                            ),
 
-                ElevatedButton(
-                    onPressed: () {
-                      controller.logout();
-                    },
-                    child: const Text("Sign Out")),
+                            ElevatedButton(
+                                onPressed: () {
+                                  controller.logout();
+                                },
+                                child: const Text("Sign Out")),
                           ],
                         )
                       ],

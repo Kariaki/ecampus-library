@@ -53,7 +53,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     return Scaffold(
       body: SafeArea(
         child: Obx(
-          () => authController.isProfileUploading.value
+          () => userController.isProfileUploading.value
               ? const Center(
                   child: CircularProgressIndicator(),
                 )
