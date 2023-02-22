@@ -14,7 +14,7 @@ class BookTile extends StatelessWidget {
     return GestureDetector(
       onTap: ontap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Center(
           child: Column(
             children: [

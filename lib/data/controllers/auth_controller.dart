@@ -18,7 +18,6 @@ class AuthController extends GetxController {
 
   dynamic credentials;
   var isLoading = false.obs;
-  String? errorMessage = "";
 
   // TODO: CREATE ACCOUNT
   Future createAccount(

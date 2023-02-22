@@ -4,7 +4,9 @@ import 'package:ecampus_library/screens/public/admin/Browse.dart';
 import 'package:ecampus_library/screens/public/admin/Chat.dart';
 import 'package:ecampus_library/screens/public/admin/Classes.dart';
 import 'package:ecampus_library/screens/public/admin/Library.dart';
+import 'package:ecampus_library/widgets/Drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AdminRoot extends StatefulWidget {
   const AdminRoot({super.key});
@@ -25,51 +27,59 @@ class _AdminRootState extends State<AdminRoot> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: screens[currentIndex],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const ChatScreen()));
-        },
-        child: const Icon(Icons.message),
-      ),
-      bottomNavigationBar:  NavigationBarTheme(
-        data: const NavigationBarThemeData(
-            labelTextStyle: MaterialStatePropertyAll(TextStyle(
-                fontSize: 12,
-                color: Colors.black,
-                fontWeight: FontWeight.bold))),
-        child: NavigationBar(
-          selectedIndex: currentIndex,
-          onDestinationSelected: (index) {
-            setState(() {
-              currentIndex = index;
-            });
-          },
-          destinations: const [
-            NavigationDestination(
-                icon: Icon(Icons.home_outlined),
-                selectedIcon: Icon(Icons.home),
-                label: "Home"),
-            NavigationDestination(
-                icon: Icon(Icons.auto_stories_outlined),
-                selectedIcon: Icon(Icons.auto_stories),
-                label: "Books"),
-            NavigationDestination(
-                icon: Icon(Icons.groups_outlined),
-                selectedIcon: Icon(Icons.groups),
-                label: "My Class"),
-            NavigationDestination(
-                icon: Icon(Icons.local_library_outlined),
-                selectedIcon: Icon(Icons.local_library),
-                label: "My Library"),
-            NavigationDestination(
-                icon: Icon(Icons.person_outline_outlined),
-                selectedIcon: Icon(Icons.person),
-                label: "Account"),
-          ],
-        ),
-      ),
-    );
+    final isMobile = MediaQuery.of(context).size.width;
+    return isMobile > 600
+        ? const Scaffold(
+            body: Browsescreen(),
+          )
+        : Scaffold(
+            body: screens[currentIndex],
+            floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ChatScreen()));
+              },
+              child: const Icon(Icons.message),
+            ),
+            bottomNavigationBar: NavigationBarTheme(
+              data: const NavigationBarThemeData(
+                  labelTextStyle: MaterialStatePropertyAll(TextStyle(
+                      fontSize: 12,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold))),
+              child: NavigationBar(
+                selectedIndex: currentIndex,
+                onDestinationSelected: (index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+                destinations: const [
+                  NavigationDestination(
+                      icon: Icon(Icons.home_outlined),
+                      selectedIcon: Icon(Icons.home),
+                      label: "Home"),
+                  NavigationDestination(
+                      icon: Icon(Icons.auto_stories_outlined),
+                      selectedIcon: Icon(Icons.auto_stories),
+                      label: "Books"),
+                  NavigationDestination(
+                      icon: Icon(Icons.groups_outlined),
+                      selectedIcon: Icon(Icons.groups),
+                      label: "My Class"),
+                  NavigationDestination(
+                      icon: Icon(Icons.local_library_outlined),
+                      selectedIcon: Icon(Icons.local_library),
+                      label: "My Library"),
+                  NavigationDestination(
+                      icon: Icon(Icons.person_outline_outlined),
+                      selectedIcon: Icon(Icons.person),
+                      label: "Account"),
+                ],
+              ),
+            ),
+          );
   }
 }

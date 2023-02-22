@@ -1,5 +1,7 @@
+import "package:ecampus_library/constants/constants.dart";
 import "package:ecampus_library/screens/public/admin/classes_screen/E-books.dart";
 import "package:ecampus_library/widgets/ClassTiles.dart";
+import "package:ecampus_library/widgets/Drawer.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 
@@ -14,6 +16,8 @@ class _ClassScreenState extends State<ClassScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const MyDrawer(),
+      appBar: AppBar(title: Text(AppConstants().appBarTitle,)),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
