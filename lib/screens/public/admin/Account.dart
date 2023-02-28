@@ -34,7 +34,7 @@ class _AccountScreenState extends State<AccountScreen> {
     return isMobile > 600
         ? Scaffold(
             appBar: AppBar(
-              title: Text(AppConstants().appBarTitle),
+              title: AppConstants().appBarTitle,
             ),
             drawer: const MyDrawer(),
             body: SingleChildScrollView(

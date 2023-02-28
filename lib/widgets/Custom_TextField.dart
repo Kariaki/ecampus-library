@@ -9,21 +9,18 @@ class CustomTextField extends StatelessWidget {
   final onChanged;
   final type;
   final onSubmitted;
-  String? value;
 
-  CustomTextField(
-      {Key? key,
-      this.controller,
-      this.color,
-      required this.icon,
-      required this.HintText,
-      this.type,
-      this.obscure,
-      this.onChanged,
-      this.onSubmitted,
-      this.value,
-      })
-      : super(key: key);
+  CustomTextField({
+    Key? key,
+    this.controller,
+    this.color,
+    required this.icon,
+    required this.HintText,
+    this.type,
+    this.obscure,
+    this.onChanged,
+    this.onSubmitted,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +39,6 @@ class CustomTextField extends StatelessWidget {
         ],
       ),
       child: TextFormField(
-        initialValue: value,
         onFieldSubmitted: onSubmitted,
         controller: controller,
         keyboardType: type,

@@ -22,14 +22,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
   String? passwordError;
   bool enabled = false;
 
-  TextEditingController usernameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
   @override
   void dispose() {
     // TODO: implement dispose
-    usernameController.dispose();
+    phoneController.dispose();
     emailController.dispose();
     passwordController.dispose();
     super.dispose();
@@ -61,15 +61,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
       );
     } catch (err) {
       Get.snackbar(
-        "Ooops", err.toString(),
+        "Ooops",
+        err.toString(),
         icon: const Icon(
-            Icons.error,
-            color: Colors.white,
-          ),
-          snackPosition: SnackPosition.BOTTOM,
-          duration: const Duration(seconds: 5),
-          backgroundColor: Colors.indigo,
-          colorText: Colors.white,);
+          Icons.error,
+          color: Colors.white,
+        ),
+        snackPosition: SnackPosition.BOTTOM,
+        duration: const Duration(seconds: 5),
+        backgroundColor: Colors.indigo,
+        colorText: Colors.white,
+      );
     }
   }
 
@@ -135,10 +137,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                                 children: [
                                                   //TODO: username text Field
                                                   CustomTextField(
-                                                    controller:
-                                                        usernameController,
+                                                    controller: phoneController,
                                                     icon: Icons.person,
-                                                    HintText: "User Name",
+                                                    HintText:
+                                                        "Enter Phone Number ",
                                                     color: Colors.indigo,
                                                     obscure: false,
                                                     type: TextInputType.text,
@@ -301,11 +303,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               padding: const EdgeInsets.symmetric(
                                   horizontal: 18, vertical: 40),
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   // TODO: email text field
                                   CustomTextField(
+                                    icon: Icons.phone,
+                                    HintText: "Enter Phone Number",
+                                    color: Colors.indigo,
+                                    controller: emailController,
+                                    obscure: false,
+                                    type: TextInputType.emailAddress,
+                                  ),
+
+                                  // Spacing
+                                  const SizedBox(
+                                    height: 25,
+                                  ),
+
+                                  CustomTextField(
                                     icon: Icons.mail,
-                                    HintText: "Email@gmail.com",
+                                    HintText: "Enter Email",
                                     color: Colors.indigo,
                                     controller: emailController,
                                     obscure: false,

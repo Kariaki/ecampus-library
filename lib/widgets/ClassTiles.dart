@@ -19,7 +19,7 @@ class ClassTile extends StatelessWidget {
             children: [
               Container(
                 height: 120,
-                width: Get.width,
+                width: Get.width/2,
                 decoration: BoxDecoration(
                   color: Colors.indigo,
                   borderRadius: BorderRadius.circular(20),

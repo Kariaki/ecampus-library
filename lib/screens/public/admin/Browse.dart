@@ -36,7 +36,7 @@ class _BrowsescreenState extends State<Browsescreen> {
                   UserModel userData = snapshot.data as UserModel;
                   return Scaffold(
                     appBar: AppBar(
-                      title: Text(AppConstants().appBarTitle),
+                      title: AppConstants().appBarTitle,
                       actions: [
                         IconButton(
                             onPressed: () {}, icon: const Icon(Icons.search)),
@@ -231,12 +231,18 @@ class _BrowsescreenState extends State<Browsescreen> {
                   );
                 } else if (snapshot.hasError) {}
               }
-
               return const Center(
                 child: CircularProgressIndicator(),
               );
             })
         : Scaffold(
+            appBar: AppBar(
+              title: AppConstants().appBarTitle,
+              actions: [
+                IconButton(onPressed: (){}, icon: const Icon(Icons.search)),
+                IconButton(onPressed: (){}, icon: const Icon(Icons.notifications)),
+              ],
+            ),
             body: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,

@@ -17,7 +17,7 @@ class BooksScreen extends StatelessWidget {
       child: Scaffold( 
         drawer: const MyDrawer(),
         appBar: AppBar(
-          title: Text(AppConstants().appBarTitle),
+          title: AppConstants().appBarTitle,
         ),
         body: SafeArea(
           child: Column(
@@ -55,7 +55,7 @@ class BooksScreen extends StatelessWidget {
       child: Scaffold(
         drawer: const MyDrawer(),
         appBar: AppBar(
-          title: Text(AppConstants().appBarTitle),
+          title: AppConstants().appBarTitle,
         ),
         body: SafeArea(
           child: Column(

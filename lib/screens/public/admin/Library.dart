@@ -20,7 +20,7 @@ class _MyLibraryScreenState extends State<MyLibraryScreen> {
     ? DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(title: Text(AppConstants().appBarTitle),),
+        appBar: AppBar(title: AppConstants().appBarTitle,),
         drawer: const MyDrawer(),
         body: SafeArea(
           child: Column(

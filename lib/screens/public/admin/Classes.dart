@@ -17,7 +17,7 @@ class _ClassScreenState extends State<ClassScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const MyDrawer(),
-      appBar: AppBar(title: Text(AppConstants().appBarTitle,)),
+      appBar: AppBar(title: AppConstants().appBarTitle),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
@@ -57,7 +57,7 @@ class _ClassScreenState extends State<ClassScreen> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 1,
+                    crossAxisCount: 2,
                     mainAxisSpacing: 10,
                     crossAxisSpacing: 10,
                     mainAxisExtent: 150,
