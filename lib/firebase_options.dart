@@ -17,7 +17,10 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -46,31 +49,21 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyANcRYxMgOu1hFylCllA98YstZnwjT_yWI',
-    appId: '1:312445651150:web:25c333a53d35778ee3689f',
-    messagingSenderId: '312445651150',
-    projectId: 'ecampus-library',
-    authDomain: 'ecampus-library.firebaseapp.com',
-    storageBucket: 'ecampus-library.appspot.com',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCsbB8xO1ojP08hhgPWGifiAFKluN4Hr5k',
-    appId: '1:312445651150:android:aaf4f16438771e16e3689f',
-    messagingSenderId: '312445651150',
-    projectId: 'ecampus-library',
-    storageBucket: 'ecampus-library.appspot.com',
+    apiKey: 'AIzaSyAekUqjtsURffQGOVFDOJE9dr_vss3Sz_w',
+    appId: '1:451474702292:android:e5e056b88d68d1f2ac6041',
+    messagingSenderId: '451474702292',
+    projectId: 'ecampus-library-5ba29',
+    storageBucket: 'ecampus-library-5ba29.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCBuZOSkfELCROg55TKZUc6XKFavocFduI',
-    appId: '1:312445651150:ios:fc6d75ab45bbc5efe3689f',
-    messagingSenderId: '312445651150',
-    projectId: 'ecampus-library',
-    storageBucket: 'ecampus-library.appspot.com',
-    androidClientId: '312445651150-c9ma47vbrk7hg61aus41309v2lf8e042.apps.googleusercontent.com',
-    iosClientId: '312445651150-bp3hj9et0kud9jtodg2osn3s6tcoe91r.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAlvk3gvy_70VLj4-p_EsrfYsaHiNDvVFY',
+    appId: '1:451474702292:ios:65c298bfbec46a17ac6041',
+    messagingSenderId: '451474702292',
+    projectId: 'ecampus-library-5ba29',
+    storageBucket: 'ecampus-library-5ba29.appspot.com',
+    iosClientId: '451474702292-59qa73qaqtj6k7o11d6a2cjk38254upd.apps.googleusercontent.com',
     iosBundleId: 'com.ecapuslibrary.ecampusLibrary',
   );
 }

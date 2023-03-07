@@ -23,9 +23,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   String? genderValue;
   String? classValue;
 
-  TextEditingController usernameController = TextEditingController();
+  TextEditingController firstnameController = TextEditingController();
+  TextEditingController lastnameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
 
   final controller = Get.put(UserController());
 
@@ -95,9 +96,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             ),
                             CustomTextField(
                               icon: Icons.person,
-                              HintText: "Username",
+                              HintText: "${userData.firstName?.capitalize} ",
                               color: Colors.indigo,
-                              controller: usernameController,
+                              controller: firstnameController,
                               obscure: false,
                               type: TextInputType.text,
                             ),
@@ -106,20 +107,9 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             ),
                             CustomTextField(
                               icon: Icons.person,
-                              HintText: "Firstname",
+                              HintText: "${userData.lastName?.capitalize}",
                               color: Colors.indigo,
-                              controller: usernameController,
-                              obscure: false,
-                              type: TextInputType.text,
-                            ),
-                            const SizedBox(
-                              height: 20,
-                            ),
-                            CustomTextField(
-                              icon: Icons.person,
-                              HintText: "Lastname",
-                              color: Colors.indigo,
-                              controller: usernameController,
+                              controller: lastnameController,
                               obscure: false,
                               type: TextInputType.text,
                             ),
@@ -128,11 +118,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                             ),
                             CustomTextField(
                               icon: Icons.mail,
-                              HintText: "Email@gmail.com",
+                              HintText: "${userData.email?.capitalize}",
                               color: Colors.indigo,
                               controller: emailController,
                               obscure: false,
                               type: TextInputType.emailAddress,
+                            ),
+
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            CustomTextField(
+                              icon: Icons.phone,
+                              HintText: "${userData.phone?.capitalize}",
+                              color: Colors.indigo,
+                              controller: phoneController,
+                              obscure: false,
+                              type: TextInputType.number,
                             ),
                             const SizedBox(
                               height: 20,
@@ -140,8 +142,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
                             // TODO: Gendre
                             Dropdown(
-                              hint: const Text(
-                                'Select Your Gender',
+                              hint: Text(
+                                '${userData.gender?.capitalize}',
                                 style: TextStyle(fontSize: 14),
                               ),
                               icon: const Icon(
@@ -174,8 +176,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
                             //TODO: Country
                             Dropdown(
-                              hint: const Text(
-                                'Select Your Country',
+                              hint: Text(
+                                '${userData.country?.capitalize}',
                                 style: TextStyle(fontSize: 14),
                               ),
                               icon: const Icon(
@@ -208,8 +210,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
 
                             //TODO: Class
                             Dropdown(
-                              hint: const Text(
-                                'Select Your Class',
+                              hint: Text(
+                                '${userData.level?.capitalize}',
                                 style: TextStyle(fontSize: 14),
                               ),
                               icon: const Icon(
@@ -242,8 +244,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     
                             //TODO: School
                             Dropdown(
-                              hint: const Text(
-                                'Select Your School',
+                              hint: Text(
+                                '${userData.school?.capitalize}',
                                 style: TextStyle(fontSize: 14),
                               ),
                               icon: const Icon(

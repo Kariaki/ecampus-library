@@ -1,8 +1,7 @@
 import 'package:ecampus_library/data/controllers/auth_controller.dart';
 import 'package:ecampus_library/screens/auth/auth.dart';
-import 'package:ecampus_library/firebase_options.dart';
-import 'package:ecampus_library/screens/public/root.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:ecampus_library/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

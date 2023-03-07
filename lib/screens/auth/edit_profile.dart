@@ -342,7 +342,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                                   genderValue,
                                   classValue,
                                   schoolValue,
-                                  userCategory.ADMIN.name,
+                                  userCategory.STUDENT.name,
                                 );
                               },
                               style: ButtonStyle(

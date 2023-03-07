@@ -6,7 +6,6 @@ import 'package:ecampus_library/screens/auth/auth.dart';
 import 'package:ecampus_library/screens/auth/edit_profile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/rendering.dart';
 import 'package:get/get.dart';
 
 UserController userController = Get.put(UserController());
@@ -24,7 +23,7 @@ class AuthController extends GetxController {
     email,
     password,
   ) async {
-    print("signup Called");
+    log("signup Called");
     try {
       await auth
           .createUserWithEmailAndPassword(
@@ -49,19 +48,21 @@ class AuthController extends GetxController {
   // TODO: LOG USER IN
  Future login(email, password) async {
     try {
-      print("Attempting login");
-      await auth.signInWithEmailAndPassword(email: email, password: password).then(
+      log("Attempting login");
+      await auth
+          .signInWithEmailAndPassword(email: email, password: password)
+          .then(
         (user) {
-          print("login successful");
+          log("login successful");
           getRoute();
         },
       ).catchError((e) {
         log('In Error $e');
         isLoading(false);
-        throw(e.toString());
+        throw (e.toString());
       });
     } on FirebaseAuthException catch (e) {
-       log('In Auth Error $e');
+      log('In Auth Error $e');
       isLoading(false);
       rethrow;
     }
@@ -70,7 +71,7 @@ class AuthController extends GetxController {
   // TODO: LOG USER OUT
   logout() {
     auth.signOut();
-    Get.to(() => const AuthScreen());
+    Get.to(()=> const AuthScreen());
   }
 
   // TODO: CHANGE USER PASSWORD
@@ -81,7 +82,7 @@ class AuthController extends GetxController {
     if (user != null) {
       doc.collection("users").doc(user.uid).get().then((value) {
         if (value.exists) {
-          print("user is logedin");
+          log("user is logged in");
           userController.getUserByCategory();
         } else {
           Get.to(() => const EditProfileScreen());

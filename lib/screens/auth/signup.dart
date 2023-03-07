@@ -77,206 +77,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isMobile = MediaQuery.of(context).size.width;
 
-    return isMobile > 600
-        ? Scaffold(
-            backgroundColor: Colors.indigo,
-            body: Obx(
-              () => authController.isLoading.value
-                  ? const Center(
-                      child: CircularProgressIndicator(),
-                    )
-                  : Row(
-                      children: [
-                        Container(
-                          height: Get.height,
-                          width: Get.width / 2.5,
-                          color: Colors.white,
-                          child: LayoutBuilder(
-                            builder: (context, constraint) {
-                              return Form(
-                                child: SingleChildScrollView(
-                                  child: ConstrainedBox(
-                                    constraints: BoxConstraints(
-                                        minHeight: constraint.maxHeight),
-                                    child: IntrinsicHeight(
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            horizontal: 18, vertical: 40),
-                                        child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            const Spacer(),
-                                            const Text(
-                                              "Welcome Back",
-                                              style: TextStyle(
-                                                  fontSize: 24,
-                                                  fontWeight: FontWeight.bold),
-                                            ),
-                                            // Spacing
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            const Text(
-                                              "Sign up to continue",
-                                              style: TextStyle(fontSize: 20),
-                                            ),
-
-                                            // Spacing
-                                            const SizedBox(
-                                              height: 25,
-                                            ),
-
-                                            // Form
-                                            Container(
-                                              child: Column(
-                                                children: [
-                                                  //TODO: username text Field
-                                                  CustomTextField(
-                                                    controller: phoneController,
-                                                    icon: Icons.person,
-                                                    HintText:
-                                                        "Enter Phone Number ",
-                                                    color: Colors.indigo,
-                                                    obscure: false,
-                                                    type: TextInputType.text,
-                                                  ),
-
-                                                  // Spacing
-                                                  const SizedBox(
-                                                    height: 25,
-                                                  ),
-
-                                                  // TODO: email text field
-                                                  CustomTextField(
-                                                    icon: Icons.mail,
-                                                    HintText: "Email@gmail.com",
-                                                    color: Colors.indigo,
-                                                    controller: emailController,
-                                                    obscure: false,
-                                                    type: TextInputType
-                                                        .emailAddress,
-                                                  ),
-
-                                                  // Spacing
-                                                  const SizedBox(
-                                                    height: 25,
-                                                  ),
-
-                                                  // TODO: Password text field
-                                                  CustomTextField(
-                                                    icon: Icons.lock,
-                                                    HintText: "Enter Password",
-                                                    color: Colors.indigo,
-                                                    obscure: true,
-                                                    type: TextInputType
-                                                        .visiblePassword,
-                                                    controller:
-                                                        passwordController,
-                                                  ),
-
-                                                  // Spacing
-                                                  const SizedBox(
-                                                    height: 20,
-                                                  ),
-
-                                                  // Spacing
-                                                  const SizedBox(
-                                                    height: 20,
-                                                  ),
-
-                                                  // TODO: create Sign Up Button
-                                                  ElevatedButton(
-                                                    style: ButtonStyle(
-                                                      shape:
-                                                          MaterialStatePropertyAll(
-                                                        RoundedRectangleBorder(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(10),
-                                                        ),
-                                                      ),
-                                                      fixedSize:
-                                                          const MaterialStatePropertyAll(
-                                                        Size(400, 50),
-                                                      ),
-                                                      backgroundColor:
-                                                          const MaterialStatePropertyAll(
-                                                        Colors.indigo,
-                                                      ),
-                                                      textStyle:
-                                                          const MaterialStatePropertyAll(
-                                                        TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.bold,
-                                                            fontSize: 24),
-                                                      ),
-                                                    ),
-                                                    onPressed: () {
-                                                      authController
-                                                          .isLoading(true);
-                                                      authController
-                                                          .createAccount(
-                                                        emailController.text
-                                                            .trim(),
-                                                        passwordController.text
-                                                            .trim(),
-                                                      );
-                                                    },
-                                                    child: const Text(
-                                                      "Sign Up",
-                                                    ),
-                                                  ),
-
-                                                  // Spacing
-                                                  const SizedBox(
-                                                    height: 30,
-                                                  ),
-
-                                                  // don't have an account
-                                                  Text.rich(
-                                                    TextSpan(
-                                                      style: AppConstants()
-                                                          .h2Style,
-                                                      text:
-                                                          "Already have an account ",
-                                                      children: [
-                                                        TextSpan(
-                                                            recognizer:
-                                                                TapGestureRecognizer()
-                                                                  ..onTap = widget
-                                                                      .onClickedSignUp,
-                                                            style: const TextStyle(
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                            text: " Log in")
-                                                      ],
-                                                    ),
-                                                  )
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                        Container(),
-                      ],
-                    ),
-            ),
-          )
-        : Scaffold(
+    return Scaffold(
             body: Container(
             height: Get.height,
             width: Get.width,
@@ -307,13 +109,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 children: [
                                   // TODO: email text field
                                   CustomTextField(
-                                    icon: Icons.phone,
-                                    HintText: "Enter Phone Number",
+                                    icon: Icons.mail,
+                                    HintText: "Enter Email",
                                     color: Colors.indigo,
                                     controller: emailController,
                                     obscure: false,
                                     type: TextInputType.emailAddress,
                                   ),
+
 
                                   // Spacing
                                   const SizedBox(
@@ -321,12 +124,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                   ),
 
                                   CustomTextField(
-                                    icon: Icons.mail,
-                                    HintText: "Enter Email",
+                                    icon: Icons.phone,
+                                    HintText: "Enter Phone Number",
                                     color: Colors.indigo,
-                                    controller: emailController,
+                                    controller: phoneController,
                                     obscure: false,
-                                    type: TextInputType.emailAddress,
+                                    type: TextInputType.number,
                                   ),
 
                                   // Spacing
