@@ -4,11 +4,12 @@ import 'package:ecampus_library/data/controllers/auth_controller.dart';
 import 'package:ecampus_library/data/controllers/user_controller.dart';
 import 'package:ecampus_library/data/dummydata.dart';
 import 'package:ecampus_library/widgets/Custom_TextField.dart';
-import 'package:ecampus_library/Widgets/Dropdown.dart';
 import 'package:ecampus_library/data/models/user_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../../widgets/Dropdown.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({Key? key}) : super(key: key);

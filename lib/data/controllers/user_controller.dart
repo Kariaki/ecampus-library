@@ -92,7 +92,6 @@ class UserController extends GetxController {
     }
   }
 
-  
 
   getUserByCategory() async {
     print("Fetching Category");
@@ -114,4 +113,6 @@ class UserController extends GetxController {
       }
     });
   }
+
+
 }

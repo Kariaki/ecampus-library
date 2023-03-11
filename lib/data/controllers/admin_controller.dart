@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 class AdminController extends GetxController {
+
   FirebaseAuth auth = FirebaseAuth.instance;
   FirebaseFirestore doc = FirebaseFirestore.instance;
 
